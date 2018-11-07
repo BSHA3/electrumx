@@ -336,16 +336,16 @@ class KomodoMixin(object):
 
 
 class BitcoinMixin(object):
-    SHORTNAME = "BTC"
+    SHORTNAME = "BSHA3"
     NET = "mainnet"
     XPUB_VERBYTES = bytes.fromhex("0488b21e")
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
-    P2PKH_VERBYTE = bytes.fromhex("00")
-    P2SH_VERBYTES = [bytes.fromhex("05")]
+    P2PKH_VERBYTE = bytes.fromhex("83")
+    P2SH_VERBYTES = [bytes.fromhex("88")]
     WIF_BYTE = bytes.fromhex("80")
-    GENESIS_HASH = ('000000000019d6689c085ae165831e93'
-                    '4ff763ae46a2a6c172b3f1b60a8ce26f')
-    RPC_PORT = 8332
+    GENESIS_HASH = ('0000000090692ea88f3c87dc1cd28e39'
+                    '72c6b86d6f2e7c8fd8d267e88c4d65f1')
+    RPC_PORT = 8334
 
 
 class HOdlcoin(Coin):
@@ -386,23 +386,11 @@ class BitcoinCash(BitcoinMixin, Coin):
 class BitcoinSegwit(BitcoinMixin, Coin):
     NAME = "BitcoinSegwit"
     DESERIALIZER = lib_tx.DeserializerSegWit
-    MEMPOOL_HISTOGRAM_REFRESH_SECS = 120
-    TX_COUNT = 318337769
-    TX_COUNT_HEIGHT = 524213
-    TX_PER_BLOCK = 1400
+    MEMPOOL_HISTOGRAM_REFRESH_SECS = 30
+    TX_COUNT = 7260
+    TX_COUNT_HEIGHT = 7196
+    TX_PER_BLOCK = 2
     PEERS = [
-        'btc.smsys.me s995',
-        'E-X.not.fyi s t',
-        'elec.luggs.co s443',
-        'electrum.vom-stausee.de s t',
-        'electrum3.hachre.de s t',
-        'electrum.hsmiths.com s t',
-        'helicarrier.bauerj.eu s t',
-        'hsmiths4fyqlw5xw.onion s t',
-        'luggscoqbymhvnkp.onion t80',
-        'ozahtqwp25chjdjd.onion s t',
-        'node.arihanc.com s t',
-        'arihancckjge66iv.onion s t',
     ]
 
 
