@@ -35,6 +35,7 @@ import re
 import struct
 from decimal import Decimal
 from hashlib import sha256
+from sha3 import sha3_256
 from functools import partial
 import base64
 
@@ -135,7 +136,7 @@ class Coin(object):
         '''
         if script and script[0] == OP_RETURN:
             return None
-        return sha256(script).digest()[:HASHX_LEN]
+        return sha3_256(script).digest()[:HASHX_LEN]
 
     @staticmethod
     def lookup_xverbytes(verbytes):
@@ -340,8 +341,8 @@ class BitcoinMixin(object):
     NET = "mainnet"
     XPUB_VERBYTES = bytes.fromhex("0488b21e")
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
-    P2PKH_VERBYTE = bytes.fromhex("83")
-    P2SH_VERBYTES = [bytes.fromhex("88")]
+    P2PKH_VERBYTE = bytes.fromhex("53")
+    P2SH_VERBYTES = [bytes.fromhex("58")]
     WIF_BYTE = bytes.fromhex("80")
     GENESIS_HASH = ('0000000090692ea88f3c87dc1cd28e39'
                     '72c6b86d6f2e7c8fd8d267e88c4d65f1')
